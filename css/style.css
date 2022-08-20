@@ -1,8 +1,11 @@
+@import url(//db.onlinewebfonts.com/c/163f0b34b7cfa2d1af111b31c705c86e?family=Kabel);
+
 :root {
     font-size: 1rem;
     --box-size: 1.53em;
     --diametro-jogador: .625em;
     --gap-entre-jogadores: .06em;
+    --bg-color: #d5eadb;
     box-sizing: border-box;
     font-family: sans-serif;
 }
@@ -15,10 +18,7 @@ body {
     width: 100%;
     height: 100vh;
     user-select: none;
-    background-image: url("../img/fundoPage.png");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-attachment: fixed;
+    background: linear-gradient(60deg, #6a65f6 0%, #fda085 100%) no-repeat center center fixed;
 }
 
 main {

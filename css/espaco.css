@@ -54,33 +54,30 @@
     grid-row: 1 / span 1;
 }
 
+.especial {
+    background-size: cover;
+}
+
 .inicio {
-    background-color: #dd4c4c;
     background-image: url(../img/inicio.png);
-    background-size: contain;
     grid-column: 22 / span 3;
     grid-row: 22 / span 3;
 }
 
 .estacionamento {
     background-image: url(../img/estacionamento.png);
-    background-size: contain;
     grid-column: 1 / span 3;
     grid-row: 1 / span 3;
 }
 
 .cadeia {
-    background-color: #dd4c4c;
     background-image: url(../img/cadeia.png);
-    background-size: contain;
     grid-column: 1 / span 3;
     grid-row: 22 / span 3;
 }
 
 .vaipracadeia {
-    background-color: #dd4c4c;
     background-image: url(../img/vaipracadeia.png);
-    background-size: contain;
     grid-column: 22/ span 3;
     grid-row: 1 / span 3;
 }
