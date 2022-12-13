@@ -1,47 +1,49 @@
-import Tabuleiro from "./tabuleiro.js";
+const websocket = new WebSocket('ws://localhost:8080/game');
 
-let numeroDeJogadores = 0;
-let numeroDeDados = 0;
-window.tabuleiro = null;
+websocket.onmessage = (event) => {
+  // Parse the JSON message received from the server
+  const data = JSON.parse(event.data);
+  
+  if (data.type === 'admin') {
+    console.log('You are now an admin');
+  }
 
-document.getElementById("quantidade-de-jogadores").addEventListener("change", () => {
-    let numeroDeJogadores = document.getElementById("quantidade-de-jogadores").value;
-    if (numeroDeJogadores > 1 && numeroDeJogadores <= 8) {
-        numeroDeJogadores = parseInt(numeroDeJogadores);
-    }
-    else {
-        alert("Quantidade de jogadores inválida. Deve ser entre 2 e 8.");
-    }
 }
-);
 
-document.getElementById("quantidade-de-dados").addEventListener("change", () => {
-    let numeroDeDados = document.getElementById("quantidade-de-dados").value;
-    if (numeroDeDados > 0 && numeroDeDados <= 2) {
-        numeroDeDados = parseInt(numeroDeDados);
-    }
-    else {
-        alert("Quantidade de dados inválida. Deve ser 1 ou 2.");
-    }
+websocket.onopen = () => {
+  // Send a message to the server to join the game
+  websocket.send(JSON.stringify({
+    type: 'join-game',
+    name: prompt('What is your name?'),
+  }));
 }
-);
 
-document.getElementById("iniciar-jogo").addEventListener("click", () => {
-   iniciarJogo();
+function handleClick(event) {
+  // Send a message to the server to make a move
+  console.log(event.target.dataset.x, event.target.dataset.y);
+  
 }
-);
 
-function iniciarJogo() {
-    numeroDeJogadores = document.getElementById("quantidade-de-jogadores").value;
-    numeroDeDados = document.getElementById("quantidade-de-dados").value;
-    if ((numeroDeDados > 0 && numeroDeDados <= 2) && (numeroDeJogadores > 1 && numeroDeJogadores <= 8)) {
-        console.log("Iniciando jogo...");
-        document.getElementById("antes-do-inicio").style.display = "none";
-        document.getElementById("durante-jogo").style.display = "flex";
-        document.getElementById("tabuleiro").style.display = "grid";
-        window.tabuleiro = new Tabuleiro(numeroDeJogadores, numeroDeDados);
-    }
-    else {
-        alert("Informações inválidas. Devem ser informadas pelo menos 2 jogadores e 1 dado.");
-    }
+// Function to detect what cell was clicked
+function getCell(event) {
+  // Get the cell that was clicked
+  const cell = event.target;
+  if (cell.classList.contains('cell')) {
+    // Get the cell's id
+    const cellId = cell.id;
+    // cellId is in the format 'cell-x-y', so we need to split it to get the x and y coordinates
+    const cellCoordinates = cellId.split('-');
+
+    websocket.send(JSON.stringify({
+      type: 'make-move',
+      x: cellCoordinates[1],
+      y: cellCoordinates[2],
+    }));
+  }
 }
+
+// make the getCell function run when a cell is clicked. A Cell is an HTML element with the class 'cell'
+document.querySelectorAll('.cell').forEach(cell => {
+  cell.addEventListener('click', getCell);
+});
+
