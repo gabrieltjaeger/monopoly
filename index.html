@@ -5,42 +5,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/monopoly/css/reset.css">
-    <link rel="stylesheet" href="/monopoly/css/cidade.css">
-    <link rel="stylesheet" href="/monopoly/css/cofre.css">
-    <link rel="stylesheet" href="/monopoly/css/companhia.css">
-    <link rel="stylesheet" href="/monopoly/css/dado.css">
-    <link rel="stylesheet" href="/monopoly/css/espaco.css">
-    <link rel="stylesheet" href="/monopoly/css/imposto.css">
-    <link rel="stylesheet" href="/monopoly/css/jogador.css">
-    <link rel="stylesheet" href="/monopoly/css/painel.css">
-    <link rel="stylesheet" href="/monopoly/css/sorte.css">
-    <link rel="stylesheet" href="/monopoly/css/transporte.css">
-    <link rel="stylesheet" href="/monopoly/css/tabuleiro.css">
-    <link rel="stylesheet" href="/monopoly/css/style.css">
-    <link rel="stylesheet" href="/monopoly/css/responsividade.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/cidade.css">
+    <link rel="stylesheet" href="./css/cofre.css">
+    <link rel="stylesheet" href="./css/companhia.css">
+    <link rel="stylesheet" href="./css/dado.css">
+    <link rel="stylesheet" href="./css/espaco.css">
+    <link rel="stylesheet" href="./css/imposto.css">
+    <link rel="stylesheet" href="./css/jogador.css">
+    <link rel="stylesheet" href="./css/painel.css">
+    <link rel="stylesheet" href="./css/sorte.css">
+    <link rel="stylesheet" href="./css/transporte.css">
+    <link rel="stylesheet" href="./css/tabuleiro.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/responsividade.css">
     <title>Monopoly</title>
 </head>
 
 <body>
     <main>
-        <div id="antes-do-inicio">
-            <p>
-                <label for="quantidade-de-jogadores">Quantas pessoas irão jogar?</label>
-                <input type="number" id="quantidade-de-jogadores" min="2" max="8" value="2">
-            </p>
-            <p>
-                <label for="quantidade-de-dados">Quantos dados haverão no jogo?</label>
-                <input type="number" id="quantidade-de-dados" min="1" max="2" value="1">
-            </p>
-            <button id="iniciar-jogo">Iniciar Jogo</button>
-        </div>
         <div id="durante-jogo">
         </div>
-        <div class="tabuleiro" id="tabuleiro" style="display: none;">
+        <div class="tabuleiro" id="tabuleiro">
             <div class="container">
                 <div class="titulo-jogo">
-                    <p>Monopoly</p>
+                    <p>Furgopoly</p>
                 </div>
                 <div id="cartas"></div>
                 <div id="opcoes-espaco">
@@ -289,18 +278,7 @@
             </div>
         </div>
     </main>
-    <script type="module" src="/monopoly/script/cidade.js"></script>
-    <script type="module" src="/monopoly/script/cofre.js"></script>
-    <script type="module" src="/monopoly/script/companhia.js"></script>
-    <script type="module" src="/monopoly/script/dado.js"></script>
-    <script type="module" src="/monopoly/script/espaco.js"></script>
-    <script type="module" src="/monopoly/script/especial.js"></script>
-    <script type="module" src="/monopoly/script/imposto.js"></script>
-    <script type="module" src="/monopoly/script/jogador.js"></script>
-    <script type="module" src="/monopoly/script/sorte.js"></script>
-    <script type="module" src="/monopoly/script/tabuleiro.js"></script>
-    <script type="module" src="/monopoly/script/transporte.js"></script>
-    <script type="module" src="/monopoly/script/script.js"></script>
+    <script type="module" src="./script/script.js"></script>
 </body>
 
 </html>
