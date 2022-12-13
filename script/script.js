@@ -1,4 +1,4 @@
-const websocket = new WebSocket('ws://localhost:8080/game');
+const websocket = new WebSocket('ws://34.176.41.79:8081/game');
 
 websocket.onmessage = (event) => {
   // Parse the JSON message received from the server
